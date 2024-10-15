@@ -16,5 +16,15 @@
                 </tr>
         </table>
     </div>
+    <div class="purpose"> 
+        <table align="center" width="800">
+            <tr height="50"></tr>
+                <tr>
+                    <td align="justify" width="400">Website ini dibuat untuk mempresentasikan hasil probes kami dalam bentuk dokumen laporan, powerpoint, poster, beserta logbook dalam sebuah situs web untuk memudahkan aksesibilitas. Kami juga membuat website ini untuk menggunakan skill yang telah kami pelajari di sekolah kepada suatu website yang utuh dan layak.</td>
+                    <td width="100"></td>
+                    <td><img src="foto tujuan.png" alt="coding" width="300"></td>
+                </tr>
+        </table>
+    </div>
 </body>
 </html>
