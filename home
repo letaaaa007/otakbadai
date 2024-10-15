@@ -6,6 +6,15 @@
     <title>Home</title>
 </head>
 <body>
-    
+    <div class="background"> 
+        <table align="center" width="800">
+            <tr height="50"></tr>
+                <tr>
+                    <td align="justify" width="400">Kami membuat website ini untuk mempresentasikan hasil dari probes kami dengan judul “DETECTING SLEEP BEHAVIOURS IN CLASS USING OPENCV PROGRAMMING”. Website ini meliputi dokumen laporan kami, powerpoint, poster, beserta logbook yang telah kami kerjakan dengan dedikasi selama 6 bulan ini. Inti dari probes kami adalah pembuatan suatu program untuk mendeteksi orang yang sedang dalam keadaan tidur maupun mengantuk. </td>
+                    <td width="100"></td>
+                    <td><img src="" alt="" width="300"></td>
+                </tr>
+        </table>
+    </div>
 </body>
 </html>
