@@ -1,1 +1,42 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+</head>
+<body>
+    <div class="aleta">
+        <table align="center" width="800">
+            <tr height="50"></tr>
+            <tr>
+                <td align="center" width="400">
+                    Aleta Josephine Lukman
+                    <br>
+                    Umur: 17
+                    <br>
+                    Pendidikan: SMA Santa Laurensia
+                </td>
+                <td width="100"></td>
+                <td><img src="aleta.png" alt="foto aleta" height="300"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="angie">
+        <table align="center" width="800">
+            <tr height="50"></tr>
+            <tr>
+                <td align="center" width="400">
+                    Felisha Angeline
+                    <br>
+                    Umur: 18
+                    <br>
+                    Pendidikan: SMA Santa Laurensia
+                </td>
+                <td width="100"></td>
+                <td><img src="angie.jpeg" alt="foto angie" height="300"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
