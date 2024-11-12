@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .menu{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
 
+    .logo{
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img{
+        width: 50px;
+        margin-right: 3px;
+        transition: all .50 ease;
+    }
+
+    .navbar{
+        display: flex;
+        margin-top: 15px;
+        list-style: none;
+    }
+
+    .navbar a{
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 5px 6;
+        margin: 0px 30px;
+        transition: all .50s ease;
+    }
+</style>
+<body>
+    <div class="menu">
+        <a href="#" class="logo"><img src=logo.png width="100"></a>
+        <ul class="navbar">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="report.html">Report</a></li>
+            <li><a href="ppt.html">Powerpoint</a></li>
+            <li><a href="poster.html">Poster</a></li>
+            <li><a href="logbook.html">Logbook</a></li>
+            <li><a href="forms.html">Feedback</a></li>
+        </ul>
+    </div>
+    <div class="logbook">
+        <table>
+            <tr>
+                <td>
+                    <a href="https://docs.google.com/spreadsheets/d/1yDgT-G_r2U9PUIRmjdeRhl5rlJCyIusah_dd-DVnvLM/edit?usp=sharing" class="logbook-angie"><img src="spreadsheet.png" alt="" width="300"></a>
+                </td>
+                <td>
+                    <a href="https://docs.google.com/document/d/16TzmoMzIhL_tDO2D6Ua4XeC5BkXsCOn2KnzOKsAiF6s/edit?usp=sharing"><img src="spreadsheet2.png" alt=""></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Logbook Felisha Angeline
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
