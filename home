@@ -1,60 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-</head>
-<style>
-        .menu{
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ceceff;
+        }
+
+        .menu {
             position: fixed;
+            background-color: black;
+            color: white;
             width: 100%;
             top: 0;
             right: 0;
             z-index: 1000;
             display: flex;
             align-items: center;
-            position: fixed;
         }
 
-        .logo{
+        .logo {
             display: flex;
-            align-items: center;
+            align-items: left;
         }
 
-        .logo img{
-            width: 50px;
-            margin-right: 3px;
-            transition: all .50 ease;
+        .logo img {
+            width: 100px;
+            margin-left: 5px;
+            margin-top: 5px;
+            transition: all .50s ease;
         }
 
-        .navbar{
+        .navbar {
             display: flex;
+            color: white;
             margin-top: 15px;
             list-style: none;
         }
 
-        .navbar a{
+        .navbar a {
             font-size: 1.1rem;
             font-weight: 500;
-            padding: 5px 6;
+            padding: 5px 6px;
             margin: 0px 30px;
             transition: all .50s ease;
         }
-</style>
+
+        .header-animation {
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+        }
+
+        .header-animation ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header-animation ul li {
+            list-style: none;
+            color: #484848;
+            font-size: 5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 20px;
+            animation: animate 3.92s linear infinite;
+            animation-delay: calc(var(--i) * 0.28s);
+        }
+
+        .header-animation ul li:nth-child(1) { --i: 1; }
+        .header-animation ul li:nth-child(2) { --i: 2; }
+        .header-animation ul li:nth-child(3) { --i: 3; }
+
+        @keyframes animate {
+            0%, 90% {
+                color: #151414;
+                text-shadow: none;
+                transform: scale(1);
+            }
+            100% {
+                color: #000080;
+                text-shadow: 0 0 7px #000080, 0 0 50px #0000a7;
+                transform: scale(1.5);
+            }
+        }
+    </style>
+</head>
 <body>
     <div class="menu">
-        <a href="#" class="logo"><img src=logo.png></a>
+        <a href="#" class="logo"><img src="logo.png" alt="Logo"></a>
         <ul class="navbar">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="report.html">Report</a></li>
-            <li><a href="ppt.html">Powerpoint</a></li>
-            <li><a href="poster.html">Poster</a></li>
-            <li><a href="logbook.html">Logbook</a></li>
-            <li><a href="forms.html">Feedback</a></li>
+            <li><a href="about.html" style="color: white">About Us</a></li>
+            <li><a href="report.html" style="color: white">Report</a></li>
+            <li><a href="ppt.html" style="color: white">Powerpoint</a></li>
+            <li><a href="poster.html" style="color: white">Poster</a></li>
+            <li><a href="logbook.html" style="color: white">Logbook</a></li>
+            <li><a href="forms.html" style="color: white">Feedback</a></li>
+        </ul>
+    </div>
+    
+    <div class="header-animation">
+        <ul>
+            <li>Sleep,</li>
+            <li>Camera,</li>
+            <li>ACTION!</li>
         </ul>
     </div>
 </body>
-
 </html>
