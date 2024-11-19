@@ -4,8 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ceceff;
+        }
+
+        .menu {
+            position: fixed;
+            background-color: black;
+            color: white;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: left;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-left: 5px;
+            margin-top: 5px;
+            transition: all .50s ease;
+        }
+
+        .navbar {
+            display: flex;
+            color: white;
+            margin-top: 15px;
+            list-style: none;
+        }
+
+        .navbar a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 5px 6px;
+            margin: 0px 30px;
+            transition: all .50s ease;
+        }
+    </style>
 </head>
 <body>
+    <div class="menu">
+        <a href="#" class="logo"><img src="logo.png" alt="Logo"></a>
+        <ul class="navbar">
+            <li><a href="about.html" style="color: white">About Us</a></li>
+            <li><a href="report.html" style="color: white">Report</a></li>
+            <li><a href="ppt.html" style="color: white">Powerpoint</a></li>
+            <li><a href="poster.html" style="color: white">Poster</a></li>
+            <li><a href="logbook.html" style="color: white">Logbook</a></li>
+            <li><a href="forms.html" style="color: white">Feedback</a></li>
+        </ul>
+    </div>
     <div class="background">
         <table align="center" width="800">
             <tr height="50"></tr>
