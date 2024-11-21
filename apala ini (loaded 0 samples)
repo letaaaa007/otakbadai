@@ -91,7 +91,7 @@ while True:
     
     if face is not None:
         count += 1
-        face_resized = cv2.resize(face, (500, 500))
+        face_resized = cv2.resize(face, (200, 200))
         face_bw = convert_to_black_and_white(face_resized)
 
         # Save file in specified directory with unique name
