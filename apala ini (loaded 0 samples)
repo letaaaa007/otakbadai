@@ -1,0 +1,148 @@
+import cv2
+import os
+import numpy as np
+from skimage.metrics import structural_similarity as ssim
+
+# Load HAAR face classifier
+face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+
+# Function to detect and draw bounding boxes around faces
+def detect_bounding_box(vid):
+    gray_image = cv2.cvtColor(vid, cv2.COLOR_BGR2GRAY)
+    faces = face_classifier.detectMultiScale(gray_image, 1.3, 5, minSize=(50, 50))
+    for (x, y, w, h) in faces:
+        cv2.rectangle(vid, (x, y), (x + w, y + h), (0, 255, 0), 4)
+    return faces
+
+# Function to extract and return the first detected face
+def face_extractor(img):
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    faces = face_classifier.detectMultiScale(gray, 1.3, 5)
+    
+    if len(faces) == 0:
+        return None
+    
+    # Crop the first face found
+    for (x, y, w, h) in faces:
+        cropped_face = img[y:y + h, x:x + w]
+        return cropped_face  # Return the first detected face
+
+# Function to convert images to black and white
+def convert_to_black_and_white(image):
+    return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Function to load sample images from a given directory
+def load_samples(sample_dir):
+    samples = []
+    if not os.path.exists(sample_dir):
+        print(f"Directory does not exist: {sample_dir}")
+        return samples
+
+    files = os.listdir(sample_dir)
+    if not files:
+        print(f"No files found in directory: {sample_dir}")
+        return samples
+
+    for filename in files:
+        if filename.endswith(('.jpeg', '.jpg', '.png')):  # Check for multiple formats
+            img_path = os.path.join(sample_dir, filename)
+            img = cv2.imread(img_path)
+            if img is not None:
+                img_bw = convert_to_black_and_white(img)
+                samples.append(img_bw)
+            else:
+                print(f"Failed to load image: {img_path}")  # Debugging output
+    print(f"Loaded {len(samples)} samples from {sample_dir}.")  # Debugging output
+    return samples
+
+# Function to compare two images using SSIM
+def compare_images(imageA, imageB):
+    return ssim(imageA, imageB)
+
+# Initialize Webcam
+cap = cv2.VideoCapture(1)  # Change to 0 if using the default camera
+count = 0
+
+# Create directory if it doesn't exist
+output_dir = './iCloud Photos/angie'
+os.makedirs(output_dir, exist_ok=True)
+
+# Load your sample images from all categories
+asleep_samples_dir = './iCloud Photos/angie/asleep'  # Change this to your asleep sample directory
+awake_samples_dir = './iCloud Photos/angie/awake'    # Change this to your awake sample directory
+sleepy_samples_dir = './iCloud Photos/angie/sleepy'  # Change this to your sleepy sample directory
+
+asleep_samples = load_samples(asleep_samples_dir)
+awake_samples = load_samples(awake_samples_dir)
+sleepy_samples = load_samples(sleepy_samples_dir)
+
+# Collect samples of your face from webcam input
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        print("Failed to capture image")
+        break
+
+    # Detect faces and draw bounding boxes
+    faces = detect_bounding_box(frame)
+
+    # Extract the first detected face
+    face = face_extractor(frame)
+    
+    if face is not None:
+        count += 1
+        face_resized = cv2.resize(face, (500, 500))
+        face_bw = convert_to_black_and_white(face_resized)
+
+        # Save file in specified directory with unique name
+        file_name_path = os.path.join(output_dir, 'sample' + str(count) + '.jpeg')
+        cv2.imwrite(file_name_path, face_bw)
+
+        # Compare captured face with asleep, awake, and sleepy samples
+        match_found_asleep = False
+        match_found_awake = False
+        match_found_sleepy = False
+
+        for sample in asleep_samples:
+            similarity = compare_images(face_bw, sample)
+            if similarity > 0.75:  # Adjust threshold as needed
+                match_found_asleep = True
+                break
+
+        for sample in awake_samples:
+            similarity = compare_images(face_bw, sample)
+            if similarity > 0.75:  # Adjust threshold as needed
+                match_found_awake = True
+                break
+        
+        for sample in sleepy_samples:
+            similarity = compare_images(face_bw, sample)
+            if similarity > 0.75:  # Adjust threshold as needed
+                match_found_sleepy = True
+                break
+
+        # Determine match status
+        if match_found_asleep:
+            match_text = "Asleep"
+        elif match_found_awake:
+            match_text = "Awake"
+        elif match_found_sleepy:
+            match_text = "Sleepy"
+        else:
+            match_text = "No Match"
+
+        # Put count and match status on images and display live count
+        cv2.putText(face_bw, f"{match_text} - Count: {count}", (10, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 2)
+        cv2.imshow('Face Cropper', face_bw)
+
+    # Display the video frame with bounding boxes
+    cv2.imshow("My Face Detection Project", frame)
+
+    # Break if 'q' is pressed or if 50 samples are collected
+    if cv2.waitKey(1) & 0xFF == ord("q") or count >= 50:
+        break
+
+# Release the video capture and close windows
+cap.release()
+cv2.destroyAllWindows()
+print("Collecting Samples Complete")
