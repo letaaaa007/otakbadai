@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,8 +50,68 @@
             margin: 0px 30px;
             transition: all .50s ease;
         }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
+            /* To avoid overlap with the fixed menu */
+            padding: 20px;
+        }
+
+        .feedback-form {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 400px;
+            /* Set a fixed width for the form */
+        }
+
+        .feedback-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .feedback-form button {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color .3s ease;
+        }
+
+        .feedback-form button:hover {
+            background-color: #666;
+        }
     </style>
+    <script>
+        function validateForm(event) {
+            const name = document.forms["feedbackForm"]["name"].value;
+            const email = document.forms["feedbackForm"]["email"].value;
+            const feedback = document.forms["feedbackForm"]["feedback"].value;
+
+            if (!name || !email || !feedback) {
+                event.preventDefault(); // Prevent form submission
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
 </head>
+
 <body>
     <div class="menu">
         <a href="#" class="logo"><img src="logo.png" alt="Logo"></a>
@@ -62,6 +123,18 @@
             <li><a href="logbook.html" style="color: white">Logbook</a></li>
             <li><a href="forms.html" style="color: white">Feedback</a></li>
         </ul>
+    </div>
+
+    <div class="container">
+        <div class="feedback-form">
+            <h2>Feedback Form</h2>
+            <form name="feedbackForm" action="/submit-feedback" method="POST" onsubmit="validateForm(event)">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="feedback" rows="5" placeholder="Your Feedback" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
