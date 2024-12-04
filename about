@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About</title>
     <style>
         body {
             margin: 0;
@@ -38,7 +39,7 @@
         .navbar {
             display: flex;
             color: white;
-            margin-top: 15px;
+            margin-top: 20px;
             list-style: none;
         }
 
@@ -49,11 +50,127 @@
             margin: 0px 30px;
             transition: all .50s ease;
         }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .search-input {
+            padding: 8px;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+            margin-right: 5px;
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .search-button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+            transition: background-color .3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #666;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1500px;
+            margin: 120px auto 0;
+            /* Added margin-top to avoid overlap with fixed menu */
+        }
+
+        .content-container {
+            display: flex;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            margin: 20px;
+            overflow: hidden;
+            /* To ensure rounded corners are respected */
+        }
+
+        .aaa {
+            flex: 1;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        .bbb {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .ccc {
+            flex: 1;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        .ddd {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .content-container img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .polaroid-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 10px;
+        }
+
+        .polaroid {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            margin: 40px; /* Increased margin for more space between polaroids */
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+        }
+
+        .polaroid img {
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 10px 20px;
+        }
     </style>
 </head>
+
 <body>
     <div class="menu">
-        <a href="#" class="logo"><img src="logo.png" alt="Logo"></a>
+        <a href="home.html" class="logo"><img src="logo.png" alt="Logo"></a>
         <ul class="navbar">
             <li><a href="about.html" style="color: white">About Us</a></li>
             <li><a href="report.html" style="color: white">Report</a></li>
@@ -61,66 +178,69 @@
             <li><a href="poster.html" style="color: white">Poster</a></li>
             <li><a href="logbook.html" style="color: white">Logbook</a></li>
             <li><a href="forms.html" style="color: white">Feedback</a></li>
+            <li>
+                <div class="search-container">
+                    <form action="/search" method="GET">
+                        <input type="text" class="search-input" name="query" placeholder="Search..." required>
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </div>
+            </li>
         </ul>
     </div>
-    <div class="background">
-        <table align="center" width="800">
-            <tr height="50"></tr>
-            <tr>
-                <td align="justify" width="400">Kami membuat website ini untuk mempresentasikan hasil dari probes kami
-                    dengan judul “DETECTING SLEEP BEHAVIOURS IN CLASS USING OPENCV PROGRAMMING”. Website ini meliputi
-                    dokumen laporan kami, powerpoint, poster, beserta logbook yang telah kami kerjakan dengan dedikasi
-                    selama 6 bulan ini. Inti dari probes kami adalah pembuatan suatu program untuk mendeteksi orang yang
-                    sedang dalam keadaan tidur maupun mengantuk. </td>
-                <td width="100"></td>
-                <td><img src="foto bg.png" alt="tidur di kelas" width="300"></td>
-            </tr>
-        </table>
-    </div>
-    <div class="purpose">
-        <table align="center" width="800">
-            <tr height="50"></tr>
-            <tr>
-                <td align="justify" width="400">Website ini dibuat untuk mempresentasikan hasil probes kami dalam bentuk
-                    dokumen laporan, powerpoint, poster, beserta logbook dalam sebuah situs web untuk memudahkan
-                    aksesibilitas. Kami juga membuat website ini untuk menggunakan skill yang telah kami pelajari di
-                    sekolah kepada suatu website yang utuh dan layak.</td>
-                <td width="100"></td>
-                <td><img src="foto tujuan.png" alt="coding" width="300"></td>
-            </tr>
-        </table>
-    </div>
-    <div class="aleta">
-        <table align="center" width="800">
-            <tr height="50"></tr>
-            <tr>
-                <td align="center" width="400">
-                    Aleta Josephine Lukman
-                    <br>
-                    Umur: 17
-                    <br>
-                    Pendidikan: SMA Santa Laurensia
-                </td>
-                <td width="100"></td>
-                <td><img src="aleta.png" alt="foto aleta" height="300"></td>
-            </tr>
-        </table>
-    </div>
-    <div class="angie">
-        <table align="center" width="800">
-            <tr height="50"></tr>
-            <tr>
-                <td align="center" width="400">
-                    Felisha Angeline
-                    <br>
-                    Umur: 18
-                    <br>
-                    Pendidikan: SMA Santa Laurensia
-                </td>
-                <td width="100"></td>
-                <td><img src="angie.jpeg" alt="foto angie" height="300"></td>
-            </tr>
-        </table>
+
+    <div class="container">
+        <div class="content-container">
+            <div class="aaa">
+                Kami membuat website ini untuk mempresentasikan hasil dari probes kami
+                dengan judul “DETECTING SLEEP BEHAVIOURS IN CLASS USING OPENCV PROGRAMMING”. Website ini meliputi
+                dokumen laporan kami, powerpoint, poster, beserta logbook yang telah kami kerjakan dengan dedikasi
+                selama 6 bulan ini. Inti dari probes kami adalah pembuatan suatu program untuk mendeteksi orang yang
+                sedang dalam keadaan tidur maupun mengantuk.
+            </div>
+            <div class="bbb">
+                <img src="foto bg.png" alt="tidur di kelas">
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div class="ddd">
+                <img src="foto tujuan.png" alt="coding">
+            </div>
+            <div class="ccc">
+                Website ini dibuat untuk mempresentasikan hasil probes kami dalam bentuk
+                dokumen laporan, powerpoint, poster, beserta logbook dalam sebuah situs web untuk memudahkan
+                aksesibilitas. Kami juga membuat website ini untuk menggunakan skill yang telah kami pelajari di
+                sekolah kepada suatu website yang utuh dan layak.
+            </div>
+        </div>
+
+        <div class="polaroid-container">
+            <div class="polaroid">
+                <img src="aleta.png" alt="foto aleta">
+                <div class="content">
+                    <p>Aleta Josephine Lukman
+                        <br>
+                        Umur: 17
+                        <br>
+                        Pendidikan: SMA Santa Laurensia
+                    </p>
+                </div>
+            </div>
+            <div class="polaroid">
+                <img src="angie.jpeg" alt="foto angie">
+                <div class="content">
+                    <p>
+                        Felisha Angeline
+                        <br>
+                        Umur: 18
+                        <br>
+                        Pendidikan: SMA Santa Laurensia
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
